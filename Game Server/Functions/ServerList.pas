@@ -87,7 +87,6 @@ var
 begin
   Player:=TPlayer(PPlayer);
   Player.Buffer.BIn:='';
-  Writeln('ENVIANDO SERVERLIST');
   with Player.Buffer do begin
     Write(Prefix);
     Write(Dword(Count));
