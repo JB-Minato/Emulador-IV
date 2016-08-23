@@ -3571,7 +3571,6 @@ begin
 
                 TCLPID(26): begin
                   Player.Buffer.BIn:='';
-                  Logger.Write('SAIU DO SERVER',ServerStatus);
                   with Player.Buffer do begin
                     Write(Prefix);
                     Write(Dword(Count));
