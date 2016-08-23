@@ -1,9 +1,9 @@
-﻿unit ServerSocket;
+unit ServerSocket;
 
 interface
 
 uses System.Win.ScktComp, System.Generics.Collections, Player, Misc, System.SysUtils,
-     Windows, Unknown, DBCon, Shop, System.StrUtils, SortUS, Lobby;
+     Windows, Unknown,ServerList , DBCon, Shop, System.StrUtils, SortUS, Lobby;
 
 type
   TServer = class
@@ -18,6 +18,7 @@ type
     Shop: TShop;
     SortUS: TSortUS;
     Socket: TServerSocket;
+    ServerList: TServerList;
     Lobby: TLobby;
     MySQL: TQuery;
     constructor Create(Port: Integer);
@@ -3568,9 +3569,68 @@ begin
                   Player.Send;
                 end;
 
+                TCLPID(26): begin
+                  Player.Buffer.BIn:='';
+                  Logger.Write('SAIU DO SERVER',ServerStatus);
+                  with Player.Buffer do begin
+                    Write(Prefix);
+                    Write(Dword(Count));
+                    Write(#$00);
+                    Write(Word($1A));
+                    Write(#$C7#$10#$B7#$1B#$B5#$79#$33#$8A#$BC#$20#$80#$71#$2E+
+                          #$9B#$A8#$25#$05#$A8#$37#$FE#$4E#$FD#$13#$29#$2F#$30+
+                          #$CC#$CD#$66#$2E#$99#$6A#$44#$39#$7A#$F0#$96#$A0#$DF+
+                          #$0E#$BA#$80#$42#$38#$2B#$E8#$41#$2A#$17#$0F#$D8#$24+
+                          #$7D#$42#$E8#$3A#$8B#$24#$2A#$99#$BF#$71#$40#$F4#$24+
+                          #$03#$B0#$AE#$7E#$20#$63#$91#$2D#$5E#$3E#$0A#$DB#$A4+
+                          #$1C#$CA#$6C#$8A#$20#$65#$A5#$D6#$70#$0C#$3A#$1E#$9D+
+                          #$DD#$C4#$A0#$0E#$49#$08#$66#$12#$6C#$44#$8D#$22#$34+
+                          #$85#$CA#$71#$99#$46#$9A#$AE#$E5#$2D#$4A#$03#$AF#$3E+
+                          #$3E#$4E#$96#$7E#$CC#$59#$0F#$D6#$F9#$82#$E4#$64#$DD+
+                          #$B2#$6A#$5C#$16#$F8#$29#$9F#$59#$3E#$E7#$CF#$B4#$C8+
+                          #$97#$20#$93#$AA#$98#$0F#$8D#$4B#$71#$A9#$C1#$88#$41+
+                          #$4F#$10#$05#$43#$A8#$53#$C0#$75#$36#$25#$F1#$0B#$8C+
+                          #$03#$6F#$5D#$85#$44#$1E#$57#$3E#$53#$09#$2B#$63#$30+
+                          #$24#$B6#$B4#$85#$EC#$F1#$3E#$85#$69#$3D#$98#$89#$20+
+                          #$06#$8A#$95#$A8#$67#$EB#$AC#$96#$4B#$7B#$0D#$6D#$32+
+                          #$E6#$58#$E8#$98#$FE#$D6#$F5#$EA#$29#$00#$F9#$32#$84+
+                          #$D2#$36#$85#$53#$DA#$18#$6B#$15#$40#$C8#$53#$42#$D7+
+                          #$AB#$D8#$3C#$B4#$04#$F0#$40#$7C#$E6#$75#$77#$54#$38+
+                          #$E5#$A6#$8F#$E6#$34#$2D#$81#$A7#$09#$CD#$28#$AE#$57+
+                          #$33#$5D#$31#$0B#$45#$26#$7D#$63#$18#$7D#$5C#$C3#$46+
+                          #$9D#$88#$A1#$AB#$B3#$53#$0A#$72#$6A#$E4#$68#$7D#$0A+
+                          #$D6#$DE#$3E#$EF#$75#$9E#$3B#$C4#$0F#$D6#$64#$74#$59+
+                          #$1A#$3F#$0B#$04#$C6#$81#$AA#$40#$46#$2E#$22#$01#$CC+
+                          #$4B#$D1#$83#$CF#$6F#$94#$5A#$4A#$A3#$5B#$6C#$6C#$FF+
+                          #$9A#$6A#$46#$27#$25#$23#$7C#$E8#$58#$C8#$E3#$33#$33+
+                          #$BD#$6F#$C8#$3A#$99#$8A#$45#$CE#$BC#$1D#$65#$28#$1D+
+                          #$D1#$06#$5A#$FE#$AA#$0B#$8D#$4E#$CE#$18#$04#$07#$12+
+                          #$03#$2C#$86#$89#$E3#$6B#$C4#$E5#$C6#$00#$38#$EA);
+                    FixSize;
+                    Encrypt(GenerateIV(0),Random($FF));
+                    ClearPacket();
+                  end;
+                  Player.Send;
+                end;
+
+
+                  TCLPID(14): begin
+                  Player.Buffer.BIn:='';
+                  with Player.Buffer do begin
+                    Write(Prefix);
+                    Write(Dword(Count));
+                    WriteCW(Word(SVPID_CHANNELLIST));
+                    FixSize;
+                    Encrypt(GenerateIV(0),Random($FF));
+                    ClearPacket();
+                  end;
+                  Player.Send;
+                end;
+
                 TCLPID(16): Lobby.SendRooms(Player);
                 TCLPID(20): Lobby.EnterRoom(Player);
                 TCLPID(24): Lobby.CreateRoom(Player);
+                TCLPID(154): ServerList.Compile(Player);
                 CLPID_EXITROOMREQUEST: Lobby.ExitRoom(Player);
                 CLPID_CHANGEGAMESETTINGS: Lobby.ChangeGameSettings(Player);
                 CLPID_CHANGEROOMSETTINGS: Lobby.ChangeRoomSettings(Player);
