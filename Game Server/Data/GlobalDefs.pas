@@ -40,6 +40,9 @@ type
     CLPID_HATCH                             = $010B,
     CLPID_PETREGISTER                       = $00CD,
     CLPID_PREEVOLVE                         = $00E9,
+
+    CLPID_SERVERLIST                        = $009A,
+    CLPID_CHANNELLIST                       = $000E,
     CLPID_NOTHING                           = $FFFF,
 
 
@@ -76,6 +79,8 @@ type
 
     SVPID_UNKNOWN_0611                      = $0611,
     SVPID_UNKNOWN_0414                      = $0414,
+    SVPID_SERVERLIST                        = $009B,
+    SVPID_CHANNELLIST                       = $000F,
 
     SVPID_NOTHING                           = $FFFF
   );
