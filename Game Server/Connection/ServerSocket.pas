@@ -3,7 +3,7 @@ unit ServerSocket;
 interface
 
 uses System.Win.ScktComp, System.Generics.Collections, Player, Misc, System.SysUtils,
-     Windows, Unknown,ServerList , DBCon, Shop, System.StrUtils, SortUS, Lobby;
+     Windows, Unknown,Azit ,ServerList , DBCon, Shop, System.StrUtils, SortUS, Lobby;
 
 type
   TServer = class
@@ -19,6 +19,7 @@ type
     SortUS: TSortUS;
     Socket: TServerSocket;
     ServerList: TServerList;
+    Azit: TAzit;
     Lobby: TLobby;
     MySQL: TQuery;
     constructor Create(Port: Integer);
