@@ -26,7 +26,8 @@ uses
   SortUS in 'Functions\SortUS.pas',
   Lobby in 'Functions\Lobby.pas',
   Pets in 'Functions\Pets.pas',
-  ServerList in 'Functions\ServerList.pas';
+  ServerList in 'Functions\ServerList.pas',
+  Azit in 'Functions\Azit.pas';
 
 var
   Msg: TMsg;
