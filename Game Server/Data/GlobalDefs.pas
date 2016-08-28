@@ -76,6 +76,7 @@ type
     SVPID_PETREGISTER                       = $00CE,
     SVPID_PREEVOLVE                         = $00EA,
     SVPID_PETEVOLVE                         = $00EC,
+    SVPID_ENTERAGIT                         = $0448,
 
     SVPID_UNKNOWN_0611                      = $0611,
     SVPID_UNKNOWN_0414                      = $0414,
