@@ -3631,7 +3631,9 @@ begin
                 TCLPID(20): Lobby.EnterRoom(Player);
                 TCLPID(24): Lobby.CreateRoom(Player);
                 TCLPID(154): ServerList.Compile(Player);
-                TCLPID(1094): Azit.enterAgit(Player);                
+                TCLPID(1094): Azit.EnterAgit(Player);
+                TCLPID(1186): Azit.TutorialDone(Player);
+                TCLPID(1188): Azit.Tutorial(Player);                
                 CLPID_EXITROOMREQUEST: Lobby.ExitRoom(Player);
                 CLPID_CHANGEGAMESETTINGS: Lobby.ChangeGameSettings(Player);
                 CLPID_CHANGEROOMSETTINGS: Lobby.ChangeRoomSettings(Player);
