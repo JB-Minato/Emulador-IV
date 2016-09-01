@@ -37,8 +37,8 @@ begin
   Self.SortUS:=SortUS;
   ID:=0;
   Buffer:=TCryptLib.Create;
-  Buffer.IV:=#$C7#$D8#$C4#$BF#$B5#$E9#$C0#$FD; //IV padr„o pego do main
-  Buffer.IV2:=#$C0#$D3#$BD#$C3#$B7#$CE#$B8#$B8; //IV2 padr„o pego do main
+  Buffer.IV:=#$C7#$D8#$C4#$BF#$B5#$E9#$C0#$FD; //IV padr√£o pego do main
+  Buffer.IV2:=#$C0#$D3#$BD#$C3#$B7#$CE#$B8#$B8; //IV2 padr√£o pego do main
   TIV:=GerarCode;
   TIV2:=GerarCode;
   Buffer.Prefix:=Copy(GerarCode,1,2);
@@ -89,7 +89,7 @@ begin
     Server.MySQL.Run(1);
     if Server.MySQL.Query.IsEmpty = False then begin
       if (Server.MySQL.Query.Fields[3].AsInteger = 0) or (Server.MySQL.Query.Fields[4].AsInteger = 1) then begin
-        Logger.Write(Format('Usu·rio j· logado [Handle: %d]',[Socket.Handle]),Errors);
+        Logger.Write(Format('Usu√°rio j√° logado [Handle: %d]',[Socket.Handle]),Errors);
         Socket.Close;
         Exit;
       end;
@@ -223,7 +223,7 @@ begin
                 #$00#$00#$00#$07);
         end;
 
-        Write(#$24#$C4);
+          Write(#$24#$C4);
         WriteCd(Dword(AccInfo.ID));
         Write(#$00#$00#$00#$12#$52#$00#$65#$00#$62#$00#$6F#$00#$72#$00#$6E#$00#$20#$00#$56#$00#$49+
               #$00#$00#$00#$00#$01#$00#$00#$00#$01#$00#$00#$00#$DC#$52#$00#$65#$00#$66#$00#$65#$00#$72#$00#$2D#$00#$61#$00#$2D#$00#$66+
@@ -288,9 +288,9 @@ begin
               #$00#$98#$96#$83#$00#$00#$00#$00#$56#$7B#$91#$24#$56#$7A#$3F#$A4#$00#$00#$00#$00#$00#$07#$24#$70#$00#$00#$00#$01#$00#$98+
               #$96#$84#$00#$00#$00#$00#$56#$7B#$91#$24#$56#$7A#$3F#$A4#$00#$00#$00#$00#$00#$00#$01#$18#$00#$00#$00#$00#$00#$5A#$00#$00+
               #$00#$00#$00#$80#$00#$00#$00#$00#$00#$00#$00#$00#$00#$00#$00#$18#$4D#$00#$73#$00#$67#$00#$53#$00#$65#$00#$72#$00#$76#$00+
-              #$65#$00#$72#$00#$5F#$00#$30#$00#$35#$00#$00#$00#$00#$0C#$31#$39#$32#$2E#$33#$2E#$32#$31#$31#$2E#$34#$36#$24#$54#$00#$00+
-              #$02#$5E#$00#$00#$00#$00#$00#$00#$00#$00#$FF#$FF#$FF#$FF#$FF#$FF#$FF#$FF#$00#$00#$00#$0C#$31#$39#$32#$2E#$33#$2E#$32#$31+
-              #$31#$2E#$34#$36#$00#$00#$00#$00#$00#$00#$00#$00#$03#$56#$76#$25#$68#$56#$7B#$91#$9C#$00#$00#$00#$00);
+              #$65#$00#$72#$00#$5F#$00#$30#$00#$35#$00#$00#$00#$00#$0C#$31#$32#$37#$2E#$30#$2E#$30#$2E#$31#$24#$54#$00#$00#$00#$00#$00+
+              #$02#$5E#$00#$00#$00#$00#$00#$00#$00#$00#$FF#$FF#$FF#$FF#$FF#$FF#$FF#$FF#$00#$00#$00#$0C#$31#$32#$37#$2E#$30#$2E#$30#$2E+
+              #$31#$00#$00#$00#$00#$00#$00#$00#$00#$00#$00#$00#$03#$56#$76#$25#$68#$56#$7B#$91#$9C#$00#$00#$00#$00);
         WriteCd(Dword(Length(Pets.Pets)));
         for i:=0 to Length(Pets.Pets)-1 do begin
           Write(#$00#$00#$00#$01);
