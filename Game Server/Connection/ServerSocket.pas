@@ -3626,6 +3626,50 @@ begin
                   end;
                   Player.Send;
                 end;
+                
+                  TCLPID(827): begin
+                  Player.Buffer.BIn:='';
+                  with Player.Buffer do begin
+                    Write(Prefix);
+                    Write(Dword(Count));
+                    WriteCW(Word(SVPID_ROOMUSER_PRESS_STATE));
+                    Write(#$23#$EC#$79#$68#$4B#$6C#$2B#$8D#$89#$9B#$23#$74#$29+
+                          #$76#$35#$86#$6D#$1D#$39#$CD#$38#$A1#$96#$50#$CF#$62+
+                          #$E1#$11#$5D#$28#$6B#$57);
+                    FixSize;
+                    Encrypt(GenerateIV(0),Random($FF));
+                    ClearPacket();
+                  end;
+                  Player.Send;
+                end;
+                
+                     TCLPID(829): begin
+                  Player.Buffer.BIn:='';
+                  with Player.Buffer do begin
+                    Write(Prefix);
+                    Write(Dword(Count));
+                    Write(#$03);
+                    Write(Word($3e));
+                    Write(#$28#$A3#$0A#$88#$C4#$46#$81#$62#$AE#$E7#$ED#$33#$EE+
+                          #$D9#$44#$F5#$C9#$BC#$DD#$4D#$FA#$BC#$D1#$0D#$DC#$D3+
+                          #$6B#$70#$6B#$C5#$C1#$04#$E8#$EE#$90#$86#$63#$5C#$30+
+                          #$D4#$42#$39#$74#$3E#$AC#$59#$B6#$B5#$4C#$CF#$87#$35+
+                          #$84#$53#$E7#$8F#$B5#$20#$E2#$AB#$19#$EE#$F4#$33#$02+
+                          #$A2#$11#$46#$ED#$F3#$DC#$BE#$89#$F3#$EA#$F5#$48#$85+
+                          #$80#$66#$5E#$3E#$84#$10#$E7#$67#$75#$9C#$43#$3A#$6F+
+                          #$64#$35#$3D#$D0#$D3#$42#$3F#$8B#$7D#$91#$09#$B4#$56+
+                          #$18#$BB#$AF#$08#$D7#$4C#$E8#$B5#$2B#$7D#$41#$0E#$EC+
+                          #$CC#$1F#$46#$8F#$11#$14#$73#$42#$CE#$C7#$3E#$ED#$81+
+                          #$5F#$DC#$69#$E5#$AB#$22#$BF#$46#$6E#$D8#$3F#$C1#$12+
+                          #$D4#$9C#$DD#$0C#$00#$5A#$F5#$2C#$6D#$4C#$7B#$0A#$86+
+                          #$DC#$61#$1A#$02#$2A#$AE#$BD#$DD#$84#$2D#$48#$D5#$D3+
+                          #$3A#$D2#$DB#$3D#$25#$6B#$C3);
+                    FixSize;
+                    Encrypt(GenerateIV(0),Random($FF));
+                    ClearPacket();
+                  end;
+                  Player.Send;
+                end;
 
                 TCLPID(16): Lobby.SendRooms(Player);
                 TCLPID(20): Lobby.EnterRoom(Player);
