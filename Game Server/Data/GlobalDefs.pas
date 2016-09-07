@@ -48,6 +48,7 @@ type
     CLPID_AGIT_STORE_CATALOG                = $045A,
     CLPID_AGIT_STORE_MATERIAL               = $045C,
     CLPID_AGIT_LOADING_COMPLETE             = $044A,
+    CLPID_ROOMUSER_PRESS_STATE              = $033B,
 
     CLPID_SERVERLIST                        = $009A,
     CLPID_CHANNELLIST                       = $000E,
@@ -92,6 +93,7 @@ type
     SVPID_AGIT_STORE_CATALOG                = $045B,
     SVPID_AGIT_STORE_MATERIAL               = $045D,
     SVPID_AGIT_LOADING_COMPLETE             = $044B,
+    SVPID_ROOMUSER_PRESS_STATE              = $033C,
 
     SVPID_UNKNOWN_0611                      = $0611,
     SVPID_UNKNOWN_0414                      = $0414,
