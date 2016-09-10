@@ -8,7 +8,7 @@ public
 end;
 implementation
 
-procedure TLobby.SquareList(Player: TPlayer);
+procedure TSquarelist.SquareList(Player: TPlayer);
   var
   i: integer;
   begin
