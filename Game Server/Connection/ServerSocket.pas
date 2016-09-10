@@ -3571,7 +3571,11 @@ begin
                 end;
 
                 TCLPID(26): begin
-                  Player.Buffer.BIn:='';
+                if Player.ID > 0 then begin
+                 Player.Buffer.BIn:='';
+                 MySQL.SetQuery('UPDATE Users SET ONLINE = 0 WHERE ID = :ID');
+                 MySQL.AddParameter('ID',AnsiString(IntToStr(Player.ID)));
+                 MySQL.Run(2);
                   with Player.Buffer do begin
                     Write(Prefix);
                     Write(Dword(Count));
@@ -3606,12 +3610,15 @@ begin
                           #$BD#$6F#$C8#$3A#$99#$8A#$45#$CE#$BC#$1D#$65#$28#$1D+
                           #$D1#$06#$5A#$FE#$AA#$0B#$8D#$4E#$CE#$18#$04#$07#$12+
                           #$03#$2C#$86#$89#$E3#$6B#$C4#$E5#$C6#$00#$38#$EA);
+                    Players.Remove(Player);
+                    Player.Free;
                     FixSize;
                     Encrypt(GenerateIV(0),Random($FF));
                     ClearPacket();
                   end;
                   Player.Send;
                 end;
+              end;
 
 
                   TCLPID(14): begin
