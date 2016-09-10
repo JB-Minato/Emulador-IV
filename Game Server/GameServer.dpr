@@ -27,7 +27,8 @@ uses
   Lobby in 'Functions\Lobby.pas',
   Pets in 'Functions\Pets.pas',
   ServerList in 'Functions\ServerList.pas',
-  Azit in 'Functions\Azit.pas';
+  Azit in 'Functions\Azit.pas',
+  SquareList in 'Functions\SquareList.pas';
 
 var
   Msg: TMsg;
