@@ -94,7 +94,7 @@ type
     SVPID_AGIT_STORE_MATERIAL               = $045D,
     SVPID_AGIT_LOADING_COMPLETE             = $044B,
     SVPID_ROOMUSER_PRESS_STATE              = $033C,
-    SVPID_SQUARELSIT                        = $0140,
+
     SVPID_UNKNOWN_0611                      = $0611,
     SVPID_UNKNOWN_0414                      = $0414,
     SVPID_SERVERLIST                        = $009B,
