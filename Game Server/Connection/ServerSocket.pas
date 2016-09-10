@@ -3,7 +3,7 @@ unit ServerSocket;
 interface
 
 uses System.Win.ScktComp, System.Generics.Collections, Player, Misc, System.SysUtils,
-     Windows, Unknown,Azit ,ServerList , DBCon, Shop, System.StrUtils, SortUS, Lobby;
+     Windows, Unknown,Azit ,Squarelist,ServerList , DBCon, Shop, System.StrUtils, SortUS, Lobby;
 
 type
   TServer = class
@@ -19,6 +19,7 @@ type
     SortUS: TSortUS;
     Socket: TServerSocket;
     ServerList: TServerList;
+    Squarelist: TSquarelist;
     Azit: TAzit;
     Lobby: TLobby;
     MySQL: TQuery;
@@ -3681,6 +3682,7 @@ begin
                 TCLPID(16): Lobby.SendRooms(Player);
                 TCLPID(20): Lobby.EnterRoom(Player);
                 TCLPID(24): Lobby.CreateRoom(Player);
+                TCLPID(319): SquareList.SquareList(Player);                
                 TCLPID(154): ServerList.Compile(Player);
                 TCLPID(1094): Azit.EnterAgit(Player);
                 TCLPID(1186): Azit.TutorialDone(Player);
