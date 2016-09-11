@@ -13,10 +13,10 @@ ou voce mesmo possa fazer..
 
 Ela necessita estar nesse formato:
 
-_Encrypt := Recebe o packet totalmente montado e retorna o packet quase pronto para o envio.
-_Decrypt := Recebe o Packet do jeito que é recebido pelo cliente.
-_ClearPacket:= Recebe o Packet apos ter passado pela rotina _Encrypt e retorna o packet pronto para envio.
-_GenerateIV:= Recebe apenas o IV e o tipo de IV a ser criado e retorna o IV completo.
+*_Encrypt := Recebe o packet totalmente montado e retorna o packet quase pronto para o envio.
+*_Decrypt := Recebe o Packet do jeito que é recebido pelo cliente.
+*_ClearPacket:= Recebe o Packet apos ter passado pela rotina _Encrypt e retorna o packet pronto para envio.
+*_GenerateIV:= Recebe apenas o IV e o tipo de IV a ser criado e retorna o IV completo.
 
 
 projeto publicado na Ragezone.com.br 
