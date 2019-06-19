@@ -2,7 +2,7 @@
 
 # EMULADOR CANCELADOR POR INTRIGAS NO GRUPO DE DESENVOLVIMENTOS
 
-Ex Desenvolvedores: Hiro , Capcom , Victor(gcb), FireFoxMito.
+Ex Desenvolvedores: Hiro, Meavy, Capcom , Victor(gcb), FireFoxMito.
 
 #O Grupo Terminou, mais deixamos o Repositorio do projeto caso alguem Queira dar continuidade.
 
